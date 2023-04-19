@@ -9,7 +9,7 @@ import styles from "./home.module.scss";
 
 import SettingsIcon from "../icons/settings.svg";
 import GithubIcon from "../icons/github.svg";
-import ChatGptIcon from "../icons/chatgpt.svg";
+import ChatGptIcon from "../icons/dicos.svg";
 
 import BotIcon from "../icons/bot.svg";
 import AddIcon from "../icons/add.svg";
@@ -168,9 +168,13 @@ function _Home() {
       >
         <div className={styles["sidebar-header"]}>
           <div className={styles["sidebar-title"]}>ChatGPT</div>
-          <div className={styles["sidebar-sub-title"]}>餐饮群ChatGPT应用</div>
+          <div className={styles["sidebar-sub-title"]}>餐饮群AI应用</div>
           <div className={styles["sidebar-logo"]}>
-            <ChatGptIcon />
+            {/*<ChatGptIcon />*/}
+            <img
+              src="https://www.dicos.com.cn/Public/static/images/logo.png"
+              style={{ maxWidth: "80px" }}
+            />
           </div>
         </div>
 
