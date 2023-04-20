@@ -3,7 +3,7 @@ import "./styles/globals.scss";
 import "./styles/markdown.scss";
 import "./styles/highlight.scss";
 import { getBuildConfig } from "./config/build";
-
+import Script from "next/script";
 const buildConfig = getBuildConfig();
 
 export const metadata = {
@@ -42,6 +42,19 @@ export default function RootLayout({
           rel="stylesheet"
         ></link>
         <script src="/serviceWorkerRegister.js" defer></script>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-DG5MBCFDVV"
+        ></Script>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DG5MBCFDVV');
+        `}
+        </Script>
       </head>
       <body>{children}</body>
     </html>
