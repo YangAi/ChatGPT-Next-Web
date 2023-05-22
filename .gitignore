@@ -42,3 +42,7 @@ public/prompts.json
 .idea
 # Sentry Auth Token
 .sentryclirc
+
+
+# docker-compose env files
+.env

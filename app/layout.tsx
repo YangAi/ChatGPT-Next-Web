@@ -3,17 +3,26 @@ import "./styles/globals.scss";
 import "./styles/markdown.scss";
 import "./styles/highlight.scss";
 import { getBuildConfig } from "./config/build";
-import Script from "next/script";
+
 const buildConfig = getBuildConfig();
 
 export const metadata = {
   title: "ChatGPT餐饮群",
   description: "餐饮群ChatGPT机器人",
+
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#151515" },
+  ],
   appleWebApp: {
     title: "ChatGPT餐饮群",
     statusBarStyle: "default",
   },
-  themeColor: "#fafafa",
 };
 
 export default function RootLayout({
@@ -42,19 +51,6 @@ export default function RootLayout({
           rel="stylesheet"
         ></link>
         <script src="/serviceWorkerRegister.js" defer></script>
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-DG5MBCFDVV"
-        ></Script>
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-DG5MBCFDVV');
-        `}
-        </Script>
       </head>
       <body>{children}</body>
     </html>
