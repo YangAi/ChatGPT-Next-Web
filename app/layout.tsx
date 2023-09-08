@@ -2,14 +2,11 @@
 import "./styles/globals.scss";
 import "./styles/markdown.scss";
 import "./styles/highlight.scss";
-import { getBuildConfig } from "./config/build";
-
-const buildConfig = getBuildConfig();
-
-export const metadata = {
-  title: "ChatGPT餐饮群",
-  description: "餐饮群ChatGPT机器人",
-
+import { getClientConfig } from "./config/client";
+import { type Metadata } from "next";
+export const metadata: Metadata = {
+  title: "ChatGPT",
+  description: "Your personal ChatGPT Chat Bot.",
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -20,7 +17,7 @@ export const metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#151515" },
   ],
   appleWebApp: {
-    title: "ChatGPT餐饮群",
+    title: "ChatGPT",
     statusBarStyle: "default",
   },
 };
@@ -42,7 +39,7 @@ export default function RootLayout({
           content="#151515"
           media="(prefers-color-scheme: dark)"
         />
-        <meta name="version" content={buildConfig.commitId} />
+        <meta name="config" content={JSON.stringify(getClientConfig())} />
         <link rel="manifest" href="/site.webmanifest"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>

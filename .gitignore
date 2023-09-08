@@ -46,3 +46,6 @@ public/prompts.json
 
 # docker-compose env files
 .env
+
+*.key
+*.key.pub
