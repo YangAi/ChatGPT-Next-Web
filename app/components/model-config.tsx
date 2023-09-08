@@ -5,15 +5,17 @@ import { InputRange } from "./input-range";
 import { ListItem, Select } from "./ui-lib";
 
 export function ModelConfigList(props: {
-  isAdmin: boolean;
   modelConfig: ModelConfig;
   updateConfig: (updater: (config: ModelConfig) => void) => void;
 }) {
   const config = useAppConfig();
+  const hash = window.location.hash.substr(1);
+  const params = new URLSearchParams(hash.split("?")[1]);
+  const isAdmin = params.get("admin") === "yes";
 
   return (
     <>
-      {props.isAdmin ? (
+      {isAdmin ? (
         <ListItem title={Locale.Settings.Model}>
           <Select
             value={props.modelConfig.model}

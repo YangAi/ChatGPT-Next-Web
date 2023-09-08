@@ -388,7 +388,6 @@ export function Settings() {
   const hash = window.location.hash.substr(1);
   const params = new URLSearchParams(hash.split("?")[1]);
   const isAdmin = params.get("admin") === "yes";
-  console.log("isAdmin", isAdmin, params.get("admin"));
 
   const clientConfig = useMemo(() => getClientConfig(), []);
   const showAccessCode = enabledAccessControl && !clientConfig?.isApp;
@@ -745,7 +744,6 @@ export function Settings() {
 
         <List>
           <ModelConfigList
-            isAdmin={isAdmin}
             modelConfig={config.modelConfig}
             updateConfig={(updater) => {
               const modelConfig = { ...config.modelConfig };
